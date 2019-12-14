@@ -1,5 +1,4 @@
 # SDA6 OnlineGrocerySystem Web Application
-Group Project
 
 Online Grocery System is developed by a team of 5 members as part of the final project assignment of SDA6 batch of Lund.
 Software developement academy(SDA) is a three & a half months training on IT/advance technical skills on different modules like:
