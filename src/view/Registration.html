@@ -1,0 +1,251 @@
+<!-- 
+Regisgtration.html
+-- This html page provides facility for the user to logging in to Online Grocery System web application or user can register 
+-- himself/herself to use Online Grocery System
+-- Registration.html file has 3 sections divided into header,main content and footer
+-- Header section contains "Online Grocery System" heading , link to Home page,About Us and Login 
+-- Main content section contains a table having 2 tabs one is for Login and another is for SignUp
+-- By clicking on Login user can get inside the application. By clicking on SignUp user can register.
+-- footer section contains the details about contact us .
+-->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Sign-Up/Login Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ 
+  <title>Online Grocery System title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registration.css">
+    
+</head>
+<body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+                <div class="container">
+                  <a class="navbar-brand" href="index.html">Online Grocery System</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                  </button>
+        
+                  <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                      <li class="nav-item dropdown">
+                    </li>
+                      <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                      <li class="nav-item"><a href="Registration.html" class="nav-link">Login</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            <!-- END NAV -->
+
+<div class="img"><br/>
+  <div class="form">
+      
+      <ul class="top-area">
+      	<li class="tab active"><a href="#login">Log In</a></li>
+        <li class="tab "><a href="#signup">Sign Up</a></li> 
+      </ul>
+<!--  
+In login tab user need to supply the registered email id and valid password to successfully login	
+Once user supplies the email id and password clicks on "Login" button values will be sent to the controller "RegistrationServlet"
+to check whether the supplied information is valid or not. If entered values are valid user will be welcomed with the list of categories
+else user will be shown a message to sign up with valid values
+ -->    
+      <div class="tab-content">
+       <div id="login">   
+          <h1>Welcome Back!</h1>
+          
+          <form action="/SDA6-Final-Project/RegistrationServlet" method="post">
+          
+            <div class="label-field">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" name="EMail" required autocomplete="off"/>
+          </div>
+          
+          <div class="label-field">
+            <label>
+              Password<span class="req">*</span>
+            </label>
+            <input type="password" name="chkPwd" required autocomplete="off"/>
+          </div>
+          
+         <input class="button button-block" TYPE="submit" name="Login" VALUE="Login">
+           <input name="operation" value="Login" type="hidden">
+          
+          </form>
+ 
+        </div>
+        <div id="signup">   
+          <h1>Sign Up for Free</h1>
+<!--  
+In SignUp tab user need to enter FirstName,LastName,MobileNumber,Address,zipCode,Country,Email Address,set a password & confirm password
+Mandatory fields are marked with asterisk(*) symbol. Until user provides the values to the mandatory fields system will not him/her to register
+Up on successful registration user will be navigated to the Home page where he can see different types of groceries and his/her emailId,password details
+are stored in database Customer table
+ -->           
+          <form action="/SDA6-Final-Project/RegistrationServlet" name = "myForm" onsubmit = "return(validate());" method="post">
+          
+          <div class="top-row">
+            <div class="label-field">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text" name = "FirstName" required autocomplete="off" />
+            </div>
+        
+            <div class="label-field">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text" name = "LastName" required autocomplete="off"/>
+            </div>
+          </div>
+          <div class="label-field">
+                <label>
+                    Mobile Number <span class="req">*</span>
+                </label>
+                <input type="number" name = "Phone" required autocomplete="off"/>
+              </div>
+          <div class="label-field">
+            <label>
+              Address<span class="req">*</span>
+            </label>
+            <input type="text" name = "Address" required autocomplete="off"/>
+          </div>
+
+          <div class="label-field">
+            <label>
+               Zip code<span class="req">*</span>
+            </label>
+            <input type="number" name = "Zip" required autocomplete="off"/>
+          </div>
+
+          <div class="label-field">
+            <label>
+                Country<span class="req">*</span>
+            </label>
+            <input type="text" name = "Country" required autocomplete="off"/>
+          </div>
+
+          <div class="label-field">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" name = "EMail" required autocomplete="off"/>
+          </div>
+          
+          <div class="label-field">
+            <label>
+              Set A Password<span class="req">*</span>
+            </label>
+            <input type="password" name= "pwd1" required autocomplete="off"/>
+          </div>
+
+          <div class="label-field">
+            <label>
+              Confirm Password<span class="req">*</span>
+            </label>
+            <input type="password" name= "pwd2" required autocomplete="off"/>
+          </div>
+          
+          <input class="button button-block" type="submit" name="GetStarted" VALUE="GetStarted">
+           <input name="operation" value="GetStarted" type="hidden">
+          
+          </form>
+ 
+        </div>
+        
+      </div>  
+</div>
+ <br/>
+</div>
+<footer class="ftco-footer ftco-section">
+      <div class="container">
+      	<div class="row">
+      		<div class="mouse">
+						<a href="#" class="mouse-icon">
+							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+						</a>
+					</div>
+      	</div>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Online Grocery System</h2>
+     		<p></p>	
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Contact Us</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">ABC 12, 21212, Lund, Sweden</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@onlinegrocerysystem.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+      <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>  
+   <!--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/jquery-migrate-3.0.1.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.easing.1.3.js"></script>
+   <script src="js/jquery.waypoints.min.js"></script>
+   <script src="js/jquery.stellar.min.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/jquery.magnific-popup.min.js"></script>
+   <script src="js/aos.js"></script>
+   <script src="js/jquery.animateNumber.min.js"></script>
+   <script src="js/bootstrap-datepicker.js"></script>
+   <script src="js/scrollax.min.js"></script>
+   <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
+   <script src="js/google-map.js"></script>
+   <script src="js/main.js"></script>
+   <script  src="js/registration.js"></script>
+</body>
+</html>
